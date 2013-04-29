@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>WordPress Freelancer Hooks API Explained - UW Freelancer</title>
+  <meta name="author" content="Upeksha Wisidagama">
+
+  
+  <meta name="description" content="WordPress Freelancer Hooks API Explained Apr 8th, 2013 In the first article on WordPress Freelancer Hooks API, the basics of the api
+discussed and &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://localhost:4000/uw-freelancer/hooks-api-explained.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="UW Freelancer" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+    
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:localhost:4000" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/uw-freelancer">UW Freelancer</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">WordPress Freelancer Hooks API Explained</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-08T18:00:00+05:30" pubdate data-updated="true">Apr 8<span>th</span>, 2013</time></p>
+  </header>
+  
+  <p>In the first article on WordPress Freelancer Hooks API, the basics of the api
+discussed and example code for a working example was explained. At the end of
+this article contains a list of all the available hooks in WordPress Freelancer
+Hooks API.</p>
+
+<h2>Customizing Widget Back end Appearance using WordPress Freelancer Hooks API</h2>
+
+<p>All widgets should extend WordPress Widget Class. UW_Freelancer_Feedback class
+(which is in class-uwf-feedback.php) extends WP_Widget in order to produce
+WordPress Freelancer Feedback Widget.</p>
+
+<p>The form method in UW_Freelancer_Feedback called view file called
+&#8216;feedback-back.php&#8217;. Echo statement at the end of this file outputs the widget
+back end form. similar to the example that was discussed in the first article,
+just before echoing the output it apply filters. &#8216;uwf-feedback-back&#8217; filter is
+applied to the output at this time. You can hook into this filter to
+alter/extend widget form.</p>
+
+<h2>Extending Feedback Widget Form with WordPress Freelancer Hooks API</h2>
+
+<p>All widgets should extend the WordPress widget class. UW_Freelancer_Feedback
+class (which is in class-uwf-feedback.php) extends WP_Widget class in order to
+produce WordPress Freelancer Feedback Widget.</p>
+
+<p>The form method in UW_Freelancer_Feedback class calls a view file called
+&#8216;feedback-back.php&#8217;. Echo statement at the end of this file outputs the widget
+backend form. Similar to the example that was discussed in the first article,
+just before echoing the output it apply filters. &#8216;uwf-feedback-back&#8217; filter is
+applied to the output at this time. You can hook into this filter to
+alter/extend widget form.</p>
+
+<h2>Extending Feedback Widget Form with WordPress Freelancer Hooks API</h2>
+
+<p>The following is how &#8216;uwf-feedback-back&#8217; filter is applied inside the plugin
+core.</p>
+
+<p>echo apply_filters(&#8216;uwf-feedback-back&#8217;, $output, $instance );</p>
+
+<p>The following code is an skeleton code you can put in your themes functions.php
+file to extend WordPress Feedback Widget output.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">add_filter(&#39;uwf-feedback-back&#39;, &#39;customize_uwf_profile_back&#39;, 10, 2);</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">function customize_uwf_profile_back($output , $instance){</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>By default, all widget options are configured globally in plugin dashboard
+page. With WordPress Freelancer Hooks API you can localize these settings per
+widget instance. The following example demonstrates how to add an extra
+instruction to the WordPress Freelancer Feedback Widget admin form.</p>
+
+<p>Suppose we want to add an extra line of instruction to the above form. We are
+given the current $output variable. We need to extend it to add an extra line.
+You can use the following code to achieve this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">add_filter(&#39;uwf-feedback-back&#39;, &#39;customize_uwf_profile_back&#39;, 10, 2);</span>
+</span><span class='line'><span class="x"> </span>
+</span><span class='line'><span class="x">function customize_uwf_profile_back($output , $instance){</span>
+</span><span class='line'><span class="x">    return $output . &#39;&lt;br /&gt;&lt;br /&gt;Enter your username in the profile settings&#39;;</span>
+</span><span class='line'><span class="x">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The following is the form appearance after adding the above code to your themes
+functions.php</p>
+
+<h2>WordPress Freelancer Hooks API Summary</h2>
+
+<ol>
+<li>uwf-profile-front</li>
+<li>uwf-feedback-front</li>
+<li><p>uwf-affiliate-front</p></li>
+<li><p>uwf-profile-back</p></li>
+<li>uwf-feedback-back</li>
+<li><p>uwf-affiliate-back</p></li>
+<li><p>uwf-profile-settings</p></li>
+<li>uwf-feedback-settings</li>
+<li><p>uwf-affiliate-settings</p></li>
+<li><p>uwf-widget-customizer</p></li>
+<li>uwf-menu-init</li>
+<li>uwf-customizer-footer</li>
+</ol>
+
+
+<p>The above are the currently available hooks in the WordPress Freelancer Hooks
+API. Future versions of WordPress Freelancer Plugin API will add more hooks and
+they will be added to the above list later.</p>
+
+  
+    <footer>
+      <p class="meta">
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-08T18:00:00+05:30" pubdate data-updated="true">Apr 8<span>th</span>, 2013</time>
+        
+      </p>
+      
+        <div class="sharing">
+  
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Upeksha Wisidagama
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

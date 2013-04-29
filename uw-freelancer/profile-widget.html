@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>WordPress Freelancer Profile Widget - UW Freelancer</title>
+  <meta name="author" content="Upeksha Wisidagama">
+
+  
+  <meta name="description" content="WordPress Freelancer Profile Widget Apr 2nd, 2013 Freelancer.com profile contains most of the important information about you and
+your freelancer. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://localhost:4000/uw-freelancer/profile-widget.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="UW Freelancer" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+    
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:localhost:4000" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/uw-freelancer">UW Freelancer</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">WordPress Freelancer Profile Widget</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-02T18:00:00+05:30" pubdate data-updated="true">Apr 2<span>nd</span>, 2013</time></p>
+  </header>
+  
+  <p>Freelancer.com profile contains most of the important information about you and
+your freelancer.com activities. WordPress Freelance Profile Widget enables you
+to display some of these information about your freelancer.com profile.</p>
+
+<h2>How WordPress Freelancer Profile Widget obtains the information</h2>
+
+<p>Freelancer.com api methods allows anyone to query public freelancer information
+using api calls. You can get either xml or json responses from the api
+depending on the query parameters. WordPress Freelancer Profile Widget queries
+the freelancer.com api to obtain information about you using your
+freelancer.com username.</p>
+
+<h3>What is my freelancer.com username</h3>
+
+<p>When you visit your freelancer.com profile page, part of the url contains the
+username. e.g. Visit &#8216;View Profile&#8217; via the &#8216;Profile&#8217; menu of your
+freelancer.com dashboard. (You need to log-in to freelancer.com to access these
+menus) Note the address bar of your browser.</p>
+
+<p>http://www.freelancer.com/u/upekshawisidaga.html
+http://www.freelancer.com/u/username.html</p>
+
+<p>username part is your username. This will be used to query freelancer.com api
+to obtain publicly available information about you.</p>
+
+<p>Note: In your freelancer.com profile page, the name in bold at the top of the
+page is the &#8216;Display Name&#8217;. This is NOT your username.</p>
+
+<h3>Which api method is used to obtain Freelancer Profile Details</h3>
+
+<p>Freelancer.com implements a RESTful architecture based on HTTP protocol.
+Results are returned either as xml or json. A typical api call structure is as
+follows.</p>
+
+<p>http://api.freelancer.com/RES_TYPE/RES_CALL.FORMAT_EXT?PARAMS</p>
+
+<p>RES_TYPE is the resource type we need to query. In this case we need to obtain
+profile information. Then &#8216;User&#8217; should be used as the RES_TYPE.</p>
+
+<p>RES_CALL is the call to make regarding a given resource. To obtain profile
+information RES_CALL is &#8216;Properties&#8217;.</p>
+
+<p>FORMAT_EXT is the format of the expected response. Let&#8217;s use xml for this
+example.</p>
+
+<p>PARAMS - parameters are used to further specify the api query. We need to
+specify the username as the id parameter to obtain profile information of a
+freelancer.com user. An example freelancer profile api query may look like the
+following.</p>
+
+<p>http://api.freelancer.com/User/Properties.xml?id=upekshawisidaga
+http://api.freelancer.com/User/Properties.xml?id=username</p>
+
+<p>Below is the response for the above query for &#8216;upekshawisidaga&#8217;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+</span><span class='line'><span class="nt">&lt;profile</span> <span class="na">xmlns=</span><span class="s">&quot;http://api.freelancer.com/schemas/xml-0.1&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;url&gt;</span>http://www.freelancer.com/u/upekshawisidaga.html<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;id&gt;</span>1739662<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;username&gt;</span>upekshawisidaga<span class="nt">&lt;/username&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;logo_url&gt;</span>http://cdn3.f-cdn.com/ppic/2902067/logo/1739662/freelancer-photo.png<span class="nt">&lt;/logo_url&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;profile_logo_url&gt;</span>http://cdn4.f-cdn.com/ppic/2902068/logo/1739662/profile_logo_1739662.jpg<span class="nt">&lt;/profile_logo_url&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;reg_unixtime&gt;</span>1281514574<span class="nt">&lt;/reg_unixtime&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;reg_date&gt;</span>Wed, 11 Aug 2010 04:16:14 -0400<span class="nt">&lt;/reg_date&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;company&gt;</span>Continental Inc<span class="nt">&lt;/company&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;currency&gt;</span>1<span class="nt">&lt;/currency&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;timezone&gt;</span>167<span class="nt">&lt;/timezone&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;gold&gt;</span>0<span class="nt">&lt;/gold&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;address&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;country&gt;</span>Sri Lanka<span class="nt">&lt;/country&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;city&gt;</span>Colombo<span class="nt">&lt;/city&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/address&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;hourlyrate&gt;</span>10<span class="nt">&lt;/hourlyrate&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;rating&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;avg&gt;</span>9.875<span class="nt">&lt;/avg&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;count&gt;</span>16<span class="nt">&lt;/count&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/rating&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;provider_rating&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;avg&gt;</span>10<span class="nt">&lt;/avg&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;count&gt;</span>15<span class="nt">&lt;/count&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/provider_rating&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;jobs&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;item&gt;</span>HTML5<span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;item&gt;</span>Javascript<span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;item&gt;</span>MySQL<span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;item&gt;</span>PHP<span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;item&gt;</span>Wordpress<span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/jobs&gt;</span>
+</span><span class='line'><span class="nt">&lt;/profile&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above example is an xml response. But in the actual implementation of the
+WordPress Freelancer Profile Widget a json object is obtained and stored in
+WordPress transients. The expiration period of these transients can be
+configured in the settings pages. You can inspect these transients at time by
+visiting the settings tab of this plugin settings page. You can delete them at
+any given time too. This will enable you to manually refresh the cached api
+responses.</p>
+
+<h2>Freelancer Profile Widget Structure</h2>
+
+<p>Freelancer profile widget is managed via Profile tab in the plugin admin page.
+To reach profile widget related settings, go to plugin administration page
+(WordPress Admin > Plugins > Installed Plugins). Find the &#8216;UW Freelancer&#8217;
+plugin. From the settings link under the plugin entry you can reach the
+WordPress Freelancer Profile Widget settings.</p>
+
+<p>You can add or remove certain components from the Freelancer Profile Widget
+from this settings page. There are three settings sections in this page.</p>
+
+<h3>Freelancer Profile Information</h3>
+
+<p>You need to enter your username (userid) in this section. It will be used in
+&#8216;Freelancer Feedback&#8217; and &#8216;Freelancer Affiliate&#8217; widgets as well. This settings
+field can be considered as the most important setting in the WordPress
+Freelancer Plugin. Please follow the instruction on &#8216;What is my freelancer.com
+username&#8217; (See above) section to find your username.</p>
+
+  
+    <footer>
+      <p class="meta">
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-02T18:00:00+05:30" pubdate data-updated="true">Apr 2<span>nd</span>, 2013</time>
+        
+      </p>
+      
+        <div class="sharing">
+  
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Upeksha Wisidagama
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

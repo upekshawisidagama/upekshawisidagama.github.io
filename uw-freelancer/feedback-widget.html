@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>WordPress Freelancer Feedback Widget - UW Freelancer</title>
+  <meta name="author" content="Upeksha Wisidagama">
+
+  
+  <meta name="description" content="WordPress Freelancer Feedback Widget Apr 4th, 2013 You can display the feedback you received for your latest project completed on
+freelancer.com &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://localhost:4000/uw-freelancer/feedback-widget.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="UW Freelancer" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+    
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:localhost:4000" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/uw-freelancer">UW Freelancer</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">WordPress Freelancer Feedback Widget</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-04T18:00:00+05:30" pubdate data-updated="true">Apr 4<span>th</span>, 2013</time></p>
+  </header>
+  
+  <p>You can display the feedback you received for your latest project completed on
+freelancer.com using WordPress Freelancer Feedback Widget.</p>
+
+<p>Freelancer.com user can participate in projects either as a project
+poster/employer or as a service provider/buyer. You can bid and work on other
+projects or you can post projects for others using the same freelancer.com user
+account. WordPress Freelancer Feedback Widget queries the freelancer.com api to
+obtain feedback items for a given user. At this time, you need to specify
+whether you need to get freelancer feedback items or employee feedback items in
+the api query string.</p>
+
+<p>S - Service Provider / Seller / Employer B - Freelancer / Buyer / Employee</p>
+
+<p>You can select which type of feedback you need to display in the WordPress
+Freelancer Feedback Widget by configuring settings in the plugin admin page.</p>
+
+<p>To configure WordPress Freelancer Feedback Widget visit the plugin settings
+page (dashboard). Then select the &#8216;Feedback&#8217; tab (the second tab),  The first
+setting in this tab allows you to specify the number of feedback items to
+retrieve from the api. This setting defaults to four. The second setting is to
+configure the feedback type previously described. Employer or Freelancer
+feedback items. You can use the select box to specify the feedback type you
+need to display in the WordPress Freelancer Feedback Widget.</p>
+
+<p>&#8216;Project Poster&#8217; setting is used to turn on/off the display of project poster
+name in the Feedback Widget. The freelancer.com feedback is a statement issued
+by the other party involved in a project via freelancer.com after the
+completion of the project. If you are an employer then you receive the
+employee/freelancer response/feedback after the project completion. If you
+enable project poster setting the freelancer.com username of the feedback will
+appear after the feedback statement. The next setting (Project Poster Link)
+enables you to link to the name to the corresponding freelancer.com user
+profile page.</p>
+
+<p>&#8216;Show Project&#8217; setting enables/disables the appearance of project name on top
+of the feedback in the WordPress Freelancer Feedback Widget. If you enable the
+next setting, i.e.  &#8216;Show Project Link&#8217;, the project name will be linked to the
+relevant freelancer.com project page. This allows a visitor to visit
+freelancer.com and verify that the information is true.</p>
+
+<p>After each project completion, you are given a chance to rate the other party
+with a feedback. A link to rating and feedback page will appear in your
+freelancer.com dashboard after the completion of each project.</p>
+
+<p>After a project is completed, you can rate a freelancer against five measures.
+(1) Quality of Work (2) Communication (3) Expertise (4) Would Hire Again and
+(5) Professionalism. With &#8216;Project Rating&#8217; setting you can enable/disable the
+display of the rating for a given project associated with a feedback.</p>
+
+<p>The other remaining settings fields are &#8216;Project Budget&#8217; and &#8216;Project Date&#8217;.
+You can enable/disable these components in the WordPress Freelancer Feedback
+Widget.</p>
+
+<h2>How WordPress Freelancer Feedback Widget obtains this information</h2>
+
+<p>Freelancer.com api provides a method to query for feedback items according to
+different parameters. The settings you specified in the plugin settings page
+(Feedback Tab) is used to construct the api query string.</p>
+
+<p>A typical freelancer.com feedback query string looks like the following.</p>
+
+<p>http://api.freelancer.com/Feedback/Search.xml?user=username</p>
+
+<p>An example response received by querying freelancer.com api for feedback items
+with parameters user=upekshawisidaga and count=2</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+</span><span class='line'><span class="nt">&lt;feedbacks</span> <span class="na">xmlns=</span><span class="s">&quot;http://api.freelancer.com/schemas/xml-0.1&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;count&gt;</span>2<span class="nt">&lt;/count&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;items&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;item&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;project&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;id&gt;</span>4078636<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;name&gt;</span>Custom Project Dec 28 2012 23:12:00<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;url&gt;</span>http://www.freelancer.com/projects/Custom-Project-Dec.4078636.html<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/project&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;from_user&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;url&gt;</span>http://www.freelancer.com/u/nit3hawkz.html<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;id&gt;</span>3193435<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;username&gt;</span>nit3hawkz<span class="nt">&lt;/username&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/from_user&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;active_unixtime&gt;</span>1358317064<span class="nt">&lt;/active_unixtime&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;active_date&gt;</span>2013-01-16 01:17:44<span class="nt">&lt;/active_date&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;review_type&gt;</span>S<span class="nt">&lt;/review_type&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;rating&gt;</span>10<span class="nt">&lt;/rating&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;descr&gt;</span>It<span class="ni">&amp;apos;</span>s always a pleasure to work with Upeksha. She is competent, efficient, and understanding - a great go-to developer for my team. We look forward to hiring her for future projects.<span class="nt">&lt;/descr&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;comment</span> <span class="nt">/&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;bid&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;amount&gt;</span>300<span class="nt">&lt;/amount&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;period&gt;</span>10<span class="nt">&lt;/period&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/bid&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;item&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;project&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;id&gt;</span>4039646<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;name&gt;</span>Recreate Joomla Website in Wordpress - repost<span class="nt">&lt;/name&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;url&gt;</span>http://www.freelancer.com/projects/PHP-Wordpress/Recreate-Joomla-Website-Wordpress-repost.html<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/project&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;from_user&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;url&gt;</span>http://www.freelancer.com/u/mrbrant.html<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;id&gt;</span>2163916<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;username&gt;</span>mrbrant<span class="nt">&lt;/username&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/from_user&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;active_unixtime&gt;</span>1356923738<span class="nt">&lt;/active_unixtime&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;active_date&gt;</span>2012-12-30 22:15:38<span class="nt">&lt;/active_date&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;review_type&gt;</span>S<span class="nt">&lt;/review_type&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;rating&gt;</span>10<span class="nt">&lt;/rating&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;descr&gt;</span>Thanks once again! Excellent project delivered on budget and on time!<span class="nt">&lt;/descr&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;comment</span> <span class="nt">/&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;bid&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;amount&gt;</span>50<span class="nt">&lt;/amount&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;period&gt;</span>4<span class="nt">&lt;/period&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/bid&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/item&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/items&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;user&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;url&gt;</span>http://www.freelancer.com/u/upekshawisidaga.html<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;id&gt;</span>1739662<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;username&gt;</span>upekshawisidaga<span class="nt">&lt;/username&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/user&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;url&gt;</span>http://www.freelancer.com/users/feedback_1739662.html<span class="nt">&lt;/url&gt;</span>
+</span><span class='line'><span class="nt">&lt;/feedbacks&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+  
+    <footer>
+      <p class="meta">
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-04T18:00:00+05:30" pubdate data-updated="true">Apr 4<span>th</span>, 2013</time>
+        
+      </p>
+      
+        <div class="sharing">
+  
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Upeksha Wisidagama
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

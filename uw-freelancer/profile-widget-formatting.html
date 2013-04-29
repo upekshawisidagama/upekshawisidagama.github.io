@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>WordPress Freelancer Profile Widget Formatting - UW Freelancer</title>
+  <meta name="author" content="Upeksha Wisidagama">
+
+  
+  <meta name="description" content="WordPress Freelancer Profile Widget Formatting Apr 3rd, 2013 In the first part, we discussed how to find the correct freelancer.com username
+and api &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://localhost:4000/uw-freelancer/profile-widget-formatting.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="UW Freelancer" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+    
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:localhost:4000" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/uw-freelancer">UW Freelancer</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">WordPress Freelancer Profile Widget Formatting</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-03T18:00:00+05:30" pubdate data-updated="true">Apr 3<span>rd</span>, 2013</time></p>
+  </header>
+  
+  <p>In the first part, we discussed how to find the correct freelancer.com username
+and api calls in detail. The article ended with a description of the first of
+the three settings sections in WordPress Freelancer Profile Widget. In this
+article, adding and removing Profile widget components is discussed. Freelancer
+profile widget styling with WordPress theme customization api is discussed at
+the end of this article.</p>
+
+<h2>Freelancer Profile Widget Components</h2>
+
+<p>There are ten components listed in the second settings section in the WordPress
+Freelancer Plugin admin settings page. These settings will enable you to turn
+on/off widget components using checkboxes. Make sure you &#8216;Save&#8217; the settings
+after making changes.</p>
+
+<p>Freelancer logo field enables you to display freelancer.com logo on top of your
+profile widget to denote the profile information is obtained from
+freelancer.com</p>
+
+<p>User Photo - Freelancer profile api call response returns with two links for
+your freelancer.com profile photo. One is for the larger image which is
+displayed in your freelancer.com profile page. The other one is 100pxX100px
+sized one mainly used for thumbnails. In the WordPress Freelancer Profile
+Widget the latter one (100pxX100px) is used. You can turn on/off profile photo
+using this setting.</p>
+
+<p>Company, city and country details are obtained from the api response too. They
+can be individually be turned on or off depending on your decision.</p>
+
+<p>Registered date is the date you registered on freelancer.com. For old members
+of freelancer.com may turn on this component to highlight their freelancing
+experience. However it is up to you to decide on the appearance of this
+component.</p>
+
+<p>Rating is the average rating you received for your freelancer.com projects.
+This is given to relative to 10. Project count is the total number of projects
+you completed on freelancer.com</p>
+
+<h2>WordPress Freelancer Widget Styles</h2>
+
+<p>WordPress Theme Customization API (<a
+href="https://codex.wordpress.org/Theme_Customization_API">Codex</a>) allows
+you to customize themes. You can live preview the effect of the changes you
+made in the customizer without going live. Only after you are satisfied with
+the changes you made and save, it is going to be live.</p>
+
+<p>WordPress Freelancer Plugin uses this powerful api to style Freelancer Widgets.
+Visit the theme customizer via the link in the third settings section in the
+first tab (Profile tab). (Theme customizer is usually located at
+yourdomain.tld/wp-admin/customize.php)</p>
+
+<p>Before visiting the theme customizer you need at least one widget visible in
+the site. Freelancer Profile Widget in a home page sidebar is recommended.
+After setting up widgets, visit the theme customizer. Expand the section named
+&#8216;Freelancer Widget&#8217;.</p>
+
+<p>You can find two color settings in the customizer. One is for changing the
+widget border color and the other one is for changing the widget background
+color. You can change the margins and padding too. You can specify different
+values for these fields. e.g. To have four different margin sizes use &#8216;1px 2px
+3px 4px&#8217; as the margin. &#8216;5px 0&#8217;, &#8216;2px&#8217;, etc.</p>
+
+<p>You can change the border of the Freelancer Widgets to match the rest fo the
+site. Border size(width) and border radius options are available to customize
+via theme customizer.</p>
+
+<p>You should see live changes in the theme preview panel. The reflected changes
+in the preview panel of the customizer will be lost unless you save them. Be
+sure to &#8216;Save &amp; Publish&#8217; after customization.</p>
+
+  
+    <footer>
+      <p class="meta">
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-03T18:00:00+05:30" pubdate data-updated="true">Apr 3<span>rd</span>, 2013</time>
+        
+      </p>
+      
+        <div class="sharing">
+  
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Upeksha Wisidagama
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

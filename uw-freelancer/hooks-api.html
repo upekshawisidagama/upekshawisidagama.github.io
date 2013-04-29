@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>WordPress Freelancer Hooks API - UW Freelancer</title>
+  <meta name="author" content="Upeksha Wisidagama">
+
+  
+  <meta name="description" content="WordPress Freelancer Hooks API Apr 7th, 2013 WordPress Freelancer Hooks API allows you to hook into and alter almost any
+aspect of the WordPress &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://localhost:4000/uw-freelancer/hooks-api.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="UW Freelancer" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+    
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:localhost:4000" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/uw-freelancer">UW Freelancer</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">WordPress Freelancer Hooks API</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-07T18:00:00+05:30" pubdate data-updated="true">Apr 7<span>th</span>, 2013</time></p>
+  </header>
+  
+  <p>WordPress Freelancer Hooks API allows you to hook into and alter almost any
+aspect of the WordPress Freelancer Plugin. Be it either customizing the front
+end appearance of a widget or back end options of a widget, just hook into the
+correct filter with your custom function to do whatever you want. WordPress
+Freelancer Hooks API consists of ten main hooks. The following is a detailed
+explanation of them.</p>
+
+<h2>WordPress Freelancer Hooks for customizing Widget Frond End Appearance</h2>
+
+<p>WordPress Freelancer Plugin provides three main widgets for your sidebars.
+&#8216;Profile&#8217;, &#8216;Feedback&#8217; and &#8216;Affiliate&#8217; widgets. You can customize the styling of
+these widgets via theme customizer section that comes with this plugin. Those
+customizations apply to all three widgets.</p>
+
+<p>In addition to theme customizer, each tab in the Freelancer Plugin Dashboard
+allows you to turn on/off components in each widget. With those settings you
+are given enough options to customize the widgets. Do you need even more
+flexibility in altering the widgets?</p>
+
+<p>WordPress Freelancer Hooks API gives you the power and freedom to completely
+customize the widget appearance. e.g. You can filter the total front end output
+of a widget by hooking into the relevant hooks and output whatever you need to
+output as the widget front end. You will be given all the details that were
+used to generate the widget front end output.</p>
+
+<h2>Customizing Widget Front End Appearance using WordPress Freelancer Hooks</h2>
+
+<p>API</p>
+
+<p>The following three filter hooks give you the complete control over the widget
+front end output.</p>
+
+<ol>
+<li>&#8216;uwf-profile-front&#8217; for profile widget front end</li>
+<li>&#8216;uwf-feedback-front&#8217; for feedback widget front end</li>
+<li>&#8216;uwf-affiliate-front&#8217; for affiliate widget front end</li>
+</ol>
+
+
+<p>&#8216;UW_Freelancer_Profile&#8217; class extends &#8216;WP_Widget&#8217; class to generate the profile
+widget. &#8216;widget&#8217; method in that class calls a view called &#8216;profile-front.php&#8217;.
+At the end of this file, after processing the output, the widget front end
+content is echoed.</p>
+
+<p>Just before echoing the output it apply filters &#8216;uwf-profile-front&#8217; to the
+output. This is where you should hook into the widget front end appearance.</p>
+
+<p>echo apply_filters(&#8216;uwf-profile-front&#8217;, $output, $user, $uw_freelancer_options,
+$instance);</p>
+
+<h2>What Resources are passed into the Filter Function</h2>
+
+<p>Upon hooking, you are given a &#8216;$user&#8217; variable and &#8216;$uw_freelancer_options&#8217;
+variable ($instance variable for widget localization). Those two variables are
+used generate the widget output. You too can use those variables to
+extend/generate the widget front end appearance. The following is an skeleton
+code which you can use in your theme functions.php</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">add_filter(&#39;uwf-affiliate-front&#39;, &#39;customize_uwf_profile_front&#39;, 10, 3);</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">function customize_uwf_profile_front($output, $user, $uw_freelancer_options,</span>
+</span><span class='line'><span class="x">$instance){</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>WordPress Freelancer Hooks API - A Working Example</h2>
+
+<p>The API Query Response for a user profile contain two fields that were not used
+in Profile Widget output generation. (There are couple of other fields as
+well). &#8216;id&#8217; field which stands for userid - a numeric value. &#8216;gold&#8217; field is
+for gold members. &#8216;gold&#8217; is a Boolean.</p>
+
+<p>Suppose now we want to extend WordPress Freelancer Profile Widget by adding
+extra line/section to the profile widget to indicate the user is a gold member
+or not of freelancer.com (Only if &#8216;gold&#8217; is true). The following is the
+default. Without any extra section at bottom of the Profile Widget.</p>
+
+<p>Put the following in your theme funtions.php</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">add_filter(&#39;uwf-profile-front&#39;, &#39;customize_uwf_profile_front&#39;, 10, 4);</span>
+</span><span class='line'><span class="x"> </span>
+</span><span class='line'><span class="x">function customize_uwf_profile_front($output, $user, $uw_freelancer_options, $instance){</span>
+</span><span class='line'><span class="x">    </span>
+</span><span class='line'><span class="x">    $gold_member = &#39;&lt;img src=&quot;&#39; . plugins_url() . &#39;/uw-freelancer/images/uw-freelancer-gold-member.png&quot; /&gt;&#39;;</span>
+</span><span class='line'><span class="x">    $output .= $user-&gt;gold ? $gold_member : &#39;Not a Gold Member!&#39;;</span>
+</span><span class='line'><span class="x">    </span>
+</span><span class='line'><span class="x">    return $output;</span>
+</span><span class='line'><span class="x">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After hooking into the widget front appearance filters via WordPress Freelancer
+Hooks API.</p>
+
+<p>The above example demonstrates how to customize WordPress Freelancer Profile
+Widget front end using &#8216;uwf-profile-front&#8217; filter hook. &#8216;uwf-feedback-front&#8217;
+can be used to filter and alter WordPress Freelancer Feedback Widget front end.
+&#8216;uwf-affliate-front&#8217; hook can be used to customize the WordPress Freelancer
+Affiliate Widget.</p>
+
+<p>This is the end of the first article on WordPress Freelancer Hooks API. Read
+more about altering widget back end appearance and adding settings to the admin
+back end of a widget with WordPress Freelancer Hooks API in the second article.</p>
+
+  
+    <footer>
+      <p class="meta">
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-07T18:00:00+05:30" pubdate data-updated="true">Apr 7<span>th</span>, 2013</time>
+        
+      </p>
+      
+        <div class="sharing">
+  
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Upeksha Wisidagama
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,10 +1,10 @@
-    -+------------.--------------+-    -------
-    -+- uu -- uu -. ww ----- ww -+-    -------
-    -+- uu -- uu -.- w - w - w --+-    -------
-    -+- uu -- uu -.- ww w w ww --+-    -------
-    -+- uu -- uu -.-- ww - ww ---+-    -------
-    -+-- uuuuuu --.--- w - w ----+-    -------
-    -+------------.--------------+-    -------
+    -+------------.--------------+-    -------   -+-------------.--------------+-    ------------------------------------+-
+    -+- uu -- uu -. ww ----- ww -+-    -------   -+---uu -- uu -. ww ----- ww--+-    ------------------------------------+-
+    -+- uu -- uu -.- w - w - w --+-    -------   -+---uu -- uu -.- w - w - w --+-    ------------------------------------+-
+    -+- uu -- uu -.- ww w w ww --+-    -------   -+---uu -- uu -.- ww w w ww --+-    ------------------------------------+-
+    -+- uu -- uu -.-- ww - ww ---+-    -------   -+---uu -- uu -.-- ww - ww ---+-    ------------------------------------+-
+    -+-- uuuuuu --.--- w - w ----+-    -------   -+--- uuuuuu --.--- w - w ----+-    ------------------------------------+-
+    -+------------.--------------+-    -------   -+-------------.--------------+-    -----upekshawisidagama.github.io----+-
 
 ## Upeksha Wisidagama
 [ Visit the site ]( http://upekshawisidagama.github.io )
@@ -12,7 +12,8 @@
 ## Licence
 
 Version 3 of the GNU General Public License
-[ GPLv3 ensures you are free to remove the handcuffs ]( http://www.gnu.org/licenses/rms-why-gplv3.html )
+
+ - [ GPLv3 ensures you are free to remove the handcuffs ]( http://www.gnu.org/licenses/rms-why-gplv3.html )
 
 The GNU General Public License is a free, copyleft license for software and
 other kinds of works.
